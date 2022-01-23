@@ -484,7 +484,7 @@ public class EditorUI : MonoBehaviour
         if (Sidebar.activeSelf) {
             AxisGizmo.anchoredPosition = new Vector2(-288f, AxisGizmo.anchoredPosition.y);
         } else {
-            AxisGizmo.anchoredPosition = new Vector2(0f, AxisGizmo.anchoredPosition.y);
+            AxisGizmo.anchoredPosition = new Vector2(-288f, AxisGizmo.anchoredPosition.y);
         }
     }
 

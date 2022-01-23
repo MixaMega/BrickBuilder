@@ -1,4 +1,4 @@
-﻿using QFSW.RichPresence;
+﻿//using QFSW.RichPresence;
 using SFB; // Standalone File Browser
 using System;
 using System.Diagnostics;
@@ -40,12 +40,12 @@ public class EditorMain : MonoBehaviour
         mapStopwatch = new Stopwatch();
         ApplySettings();
 
-        // create rp
+        /* create rp
         if (SettingsManager.Settings.DiscordRP) {
             gameObject.GetComponent<RichPresenceComponent>().enabled = true;
         } else {
             Destroy(gameObject.GetComponent<RichPresenceComponent>()); // delete rp if disabled
-        }
+        }*/
     }
 
     private void Start() {
@@ -70,9 +70,9 @@ public class EditorMain : MonoBehaviour
         InvokeRepeating("Autosave", SettingsManager.Settings.AutosaveRate * 60, SettingsManager.Settings.AutosaveRate * 60);
 
         //rp
-        if (!MapIsLoaded) {
+        /*if (!MapIsLoaded) {
             SetRichPresence("Staring at the main menu", "icon", "BrickBuilder Icon");
-        }
+        }*/
     }
 
     public void ApplySettings () {
@@ -130,7 +130,7 @@ public class EditorMain : MonoBehaviour
         MapLoaded.Invoke();
         MapIsLoaded = true;
 
-        SetRichPresence($"Building on '{map.Name}'", "icon", "BrickBuilder Icon");
+        //SetRichPresence($"Building on '{map.Name}'", "icon", "BrickBuilder Icon");
         if (clearHistory) EditorHistory.ClearHistory();
 
         mapStopwatch.Reset();
@@ -143,7 +143,7 @@ public class EditorMain : MonoBehaviour
         //LoadedMap = null;
         MapIsLoaded = false;
 
-        SetRichPresence("Staring at the main menu", "icon", "BrickBuilder Icon");
+        //SetRichPresence("Staring at the main menu", "icon", "BrickBuilder Icon");
     }
 
     public void SaveMap (string path = null, bool bbData = true) {
@@ -230,7 +230,7 @@ public class EditorMain : MonoBehaviour
 
     // RP
 
-    public void SetRichPresence (string primaryText, string primaryImage, string primaryImageTooltip) {
+    /*public void SetRichPresence (string primaryText, string primaryImage, string primaryImageTooltip) {
         if (RichPresenceComponent.Instance != null) {
             IRichPresence irp = RichPresenceComponent.Instance.RichPresenceModule;
             irp.SetPrimaryText(primaryText);
@@ -239,7 +239,7 @@ public class EditorMain : MonoBehaviour
 
             irp.SetTimestamps((int)DateTimeOffset.Now.ToUnixTimeSeconds(), 0);
         } 
-    }
+    }*/
 
     // Window Stuff
     void OnApplicationFocus (bool hasFocus) {
